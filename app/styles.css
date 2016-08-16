@@ -11,7 +11,10 @@ html {
 body {
 	max-width: 380px;
 	margin: auto;
-	padding: 2rem 0;
+	padding: 2rem 0 3rem;
+}
+a:active {
+	opacity: .65;
 }
 @media screen and ( max-width: 600px ) {
 	body {
@@ -22,19 +25,24 @@ body {
 header {
 	padding-bottom: 1rem;
 	color: #111;
-	text-align: center;
+	/*text-align: center;*/
 }
-h1:before {
+h1 {
+	/*font-family: Georgia, serif;*/
+	font-weight: normal;
+}
+h1 span:last-of-type {
+	font-weight: bold;
+}
+/*h1:before {
 	display: block;
 	height: 40px;
 	width: 40px;
 	background: url(https://cdn4.iconfinder.com/data/icons/standard-free-icons/100/Document-128.png) no-repeat center;
 	background-size: 30px;
 	margin: auto;
-	/*border: 2px solid #ddd;*/
-	/*border-radius: 100%;*/
 	content: "";
-}
+}*/
 
 /*@media screen and ( min-width: 800px ) {
 	body {
@@ -73,18 +81,27 @@ input {
 	width: calc(100% - 120px);
 	padding: 10px;
 	border: 1px solid #ddd;
+	border-radius: 2px;
+	box-shadow: 0 2px 0 #efefef inset;
 	font-family: inherit;
 	font-size: 16px;
-	/*outline: none;*/
+	outline: none;
 	vertical-align: middle;
 }
-/*input:focus {
+input:focus {
 	border-color: currentColor;
-}*/
+	box-shadow: 0 2px 0 #efefef inset, 0 0 0 2px #efefef;
+}
 p {
 	margin-bottom: 2rem;
 	/*font-size: 14px;*/
 	/*text-align: center;*/
+}
+.more {
+	position: relative;
+	border-bottom: 1px dotted #999;
+	color: #111;
+	text-decoration: none;
 }
 @media screen and ( max-width: 600px ) {
 	input {
@@ -100,16 +117,17 @@ p {
 	margin-bottom: 3rem;
 	padding: 2rem;
 	border: 1px solid #ddd;
-	border-radius: 3px;
-	box-shadow: 0 0 0 2px #efefef;
+	/*border-radius: 3px;*/
+	box-shadow: 3px 3px 0 #efefef;
 	color: #111;
 	font-family: Georgia, serif;
 	font-size: 19px;
-	/*outline: none;*/
+	outline: none;
 }
-/*[contenteditable]:focus {
+[contenteditable]:focus {
 	border-color: currentColor;
-}*/
+	box-shadow: 0 2px 0 #efefef inset, 0 0 0 2px #efefef;
+}
 @media screen and ( max-width: 600px ) {
 	[contenteditable] {
 		margin-left: -1.75rem;
@@ -160,24 +178,53 @@ button:active {
 }
 .submitted {
 	cursor: default;
+	background: #efefef;
 	outline: none;
 }
+
+/* preload background Farley image */
+#root {
+	background: url(https://raw.githubusercontent.com/jefffis/coverlttr/master/public/images/dancing-farley.gif) no-repeat -9999px -9999px;
+}
+
 .submitted:after {
 	display: block;
+	overflow: hidden;
 	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: 2;
 	height: 100%;
 	width: 100%;
-	background: #efefef url(/public/images/dancing-farley.gif) no-repeat center bottom;
+	background: #efefef url(https://raw.githubusercontent.com/jefffis/coverlttr/master/public/images/dancing-farley.gif) no-repeat center bottom;
 	background-size: 40px;
+	border-radius: 3px;
 	content: "";
 }
 @media screen and ( max-width: 600px ) {
 	button {
 		width: 100%;
-		max-width: 300px;
-		margin: auto auto 2rem;
+		max-width: 400px;
+		margin: auto;
 	}
+}
+
+footer {
+	padding-top: 3rem;
+	font-size: 14px;
+	color: #999;
+	text-align: center;
+}
+
+@media screen and ( max-width: 600px ) {
+	footer {
+		text-align: left;
+	}
+}
+
+footer strong {
+	color: #111;
+}
+footer small {
+	font-size: 13px;
 }

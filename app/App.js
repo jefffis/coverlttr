@@ -16,9 +16,10 @@ class Header extends Component {
     return (
       <div>
         <header>
-          <h1>️CoverLttr</h1>
+          <h1>️Cover<span>Better</span></h1>
         </header>
         <CoverLetterForm />
+        <Footer />
       </div>
     )
   }
@@ -54,21 +55,21 @@ var CoverLetterForm = React.createClass({
     return (
       <div>
         <p>
-          Create a re-usable cover letter: plug in company name, title and where you found it. Then focus on your cover letter itself.
+          Create a re-usable cover letter: plug in company name, title and where you found it. Then focus on your cover letter itself. <a href="#more" className="more">What &amp; Why<sup>1</sup></a>
         </p>
         <form onSubmit={this.saveDraft}>
           <fieldset>
             <label>
               <span>Company</span>
-              <input type="text" value={this.company} onBlur={this.setCompanyName} />
+              <input type="text" value={this.company} onKeyUp={this.setCompanyName} />
             </label>
             <label>
               <span>Job Title</span>
-              <input type="text" value={this.title} onBlur={this.setTitleName} />
+              <input type="text" value={this.title} onKeyUp={this.setTitleName} />
             </label>
             <label>
               <span>Found On</span>
-              <input type="text" value={this.location} onBlur={this.setLocationName} />
+              <input type="text" value={this.location} onKeyUp={this.setLocationName} />
             </label>
           </fieldset>
         </form>
@@ -92,7 +93,7 @@ var Letter = React.createClass({
         <div contentEditable id="cover-letter">
           Howdy <b className="company" data-blank="company_name">{this.props.company}</b>-folk,
           <br /><br />
-          I saw the posting for a <b className="title" data-blank="job_title">{this.props.title}</b> on <b className="location" data-blank="where_you_found_this">{this.props.location}</b> and it immediately struck me as a position I&rsquo;d love to talk more about!
+          I saw the posting for a <b className="title" data-blank="job_title">{this.props.title}</b> on <b className="location" data-blank="where_you_found_this">{this.props.location}</b> and it immediately struck me as a position I'd love to talk more about!
           <br /><br />
           *** Now, tell them why you rule. ***
           <br /><br />
@@ -109,24 +110,27 @@ var SaveLetter = React.createClass({
   downloadTextFile(event) {
     var that = event.target;
 
-    that.classList = 'submitted';
-    // setTimeout(function() {
-    //   var str = '',
-    //       coverLetterContent = document.getElementById('cover-letter'),
-    //       coverLetterTextareaContent = document.getElementById('cover-letter-text'),
-    //       link = document.getElementById('downloadlink');
+    setTimeout(function() {
+      that.classList = 'submitted';
+    }, 125);
+    setTimeout(function() {
+      var str = '',
+          coverLetterContent = document.getElementById('cover-letter'),
+          coverLetterTextareaContent = document.getElementById('cover-letter-text'),
+          link = document.getElementById('downloadlink');
 
-    //   str = coverLetterContent.innerHTML.replace(/<br[^>]*>/gi, "\n");
-    //   str = str.replace(/<(?:.|\s)*?>/g, "");
+      str = coverLetterContent.innerHTML.replace(/<br[^>]*>/gi, "\n");
+      str = str.replace(/<(?:.|\s)*?>/g, "");
 
-    //   coverLetterTextareaContent.value = str;
+      coverLetterTextareaContent.value = str;
 
-    //   link.href = makeTextFile(coverLetterTextareaContent.value);
-    //   link.click(); // fake the click, and download the file
-    // }, 500);
+      link.href = makeTextFile(coverLetterTextareaContent.value);
+      link.click(); // fake the click, and download the file
+    }, 500);
     setTimeout(function() {
       that.classList = '';
-    }, 10000);
+      that.blur();
+    }, 2000);
   },
   render() {
     return (
@@ -153,19 +157,22 @@ var makeTextFile = function (text) {
   return textFile;
 };
 
-// var LetterTemplateOne = React.createClass({
-//   render() {
-//     return (
-//       <div>
-//         Howdy <b>{this.props.company}</b>-folk,
-//         <br /><br />
-//         I saw this posting <b>{this.props.location}</b> and it immediately struck me as a position I&rsquo;d love to talk more about!
-//         <br /><br />
-//         <b>{this.props.title}</b>
-//       </div>
-//     )
-//   }
-// });
+var Footer = React.createClass({
+  render() {
+    return (
+      <footer id="more">
+        <p>
+          <strong>What &amp; Why</strong>
+          <br />
+          I can&rsquo;t be the only person who&rsquo;s re-used certain parts of a cover letter and forgotten to change the company or role. I know: lazy. But also honest, and it happens.
+        </p>
+        <small>
+          &copy; now; passionately made by <a href="http://hire.jefff.co/" target="_blank">jefff</a>.
+        </small>
+      </footer>
+    )
+  }
+});
 
 
 // class Foo extends Component {

@@ -8,6 +8,6 @@ Create a re-usable cover letter: plug in company name, title and where you found
 - then customize this away
 - lastly, download the .txt file that you can use anywhere
 
-[Watch a simple video](http://recordit.co/ftXysJ8Jbw)
+[Watch a simple video](http://recordit.co/kh4wwQwxKw)
 
-![simple video cast](http://g.recordit.co/ftXysJ8Jbw.gif)
+![simple video cast](http://g.recordit.co/kh4wwQwxKw.gif)
