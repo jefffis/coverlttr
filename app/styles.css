@@ -1,0 +1,183 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+html {
+	font: normal 100%/1.5 "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	color: #666;
+}
+body {
+	max-width: 380px;
+	margin: auto;
+	padding: 2rem 0;
+}
+@media screen and ( max-width: 600px ) {
+	body {
+		padding: 1.5rem;
+	}
+}
+
+header {
+	padding-bottom: 1rem;
+	color: #111;
+	text-align: center;
+}
+h1:before {
+	display: block;
+	height: 40px;
+	width: 40px;
+	background: url(https://cdn4.iconfinder.com/data/icons/standard-free-icons/100/Document-128.png) no-repeat center;
+	background-size: 30px;
+	margin: auto;
+	/*border: 2px solid #ddd;*/
+	/*border-radius: 100%;*/
+	content: "";
+}
+
+/*@media screen and ( min-width: 800px ) {
+	body {
+		max-width: 100%;
+		margin: 0;
+	}
+	header, form {
+		float: left;
+	}
+}*/
+
+form {
+	padding-bottom: 3rem;
+}
+label {
+	display: block;
+}
+label:nth-child(n+2) {
+	margin-top: 20px;
+}
+label span {
+	display: inline-block;
+	min-width: 100px;
+	/*padding-top: 4px;*/
+	/*color: #999;*/
+	/*font-size: 14px;*/
+	/*font-weight: bold;*/
+	/*letter-spacing: .25px;*/
+	vertical-align: middle;
+}
+label span:after {
+	content: ":";
+}
+input {
+	display: inline-block;
+	width: calc(100% - 120px);
+	padding: 10px;
+	border: 1px solid #ddd;
+	font-family: inherit;
+	font-size: 16px;
+	/*outline: none;*/
+	vertical-align: middle;
+}
+/*input:focus {
+	border-color: currentColor;
+}*/
+p {
+	margin-bottom: 2rem;
+	/*font-size: 14px;*/
+	/*text-align: center;*/
+}
+@media screen and ( max-width: 600px ) {
+	input {
+		width: 100%;
+		margin-top: 5px;
+		padding: 10px;
+	}
+}
+
+[contenteditable] {
+	margin-left: -4rem;
+	margin-right: -4rem;
+	margin-bottom: 3rem;
+	padding: 2rem;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	box-shadow: 0 0 0 2px #efefef;
+	color: #111;
+	font-family: Georgia, serif;
+	font-size: 19px;
+	/*outline: none;*/
+}
+/*[contenteditable]:focus {
+	border-color: currentColor;
+}*/
+@media screen and ( max-width: 600px ) {
+	[contenteditable] {
+		margin-left: -1.75rem;
+		margin-right: -1.75rem;
+		padding: 2.5rem 1.75rem;
+	}
+}
+@media screen and ( max-width: 400px ) {
+	[contenteditable] {
+		border-left: 0;
+		border-right: 0;
+	}
+}
+
+b {
+	font-weight: normal;
+}
+/*b:not(:empty) {*/
+b{
+	background: #FCF372;
+	padding: 2px 4px;
+}
+b:empty:after, .customize:empty:after {
+	content: attr(data-blank);
+	font-style: italic;
+}
+
+
+/*.ender {
+	text-align: right;
+}*/
+button {
+	display: block;
+	position: relative;
+	/*float: right;*/
+	background: #111;
+	margin: auto;
+	padding: 15px 20px;
+	border-radius: 3px;
+	color: white;
+	cursor: pointer;
+	font-family: inherit;
+	font-size: 16px;
+}
+button:active {
+	background: #454545;
+	color: rgba(255, 255, 255, 0.75);
+}
+.submitted {
+	cursor: default;
+	outline: none;
+}
+.submitted:after {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	height: 100%;
+	width: 100%;
+	background: #efefef url(http://hire.jefff.co/img/lodr.gif) no-repeat center;
+	background-size: 30px;
+	content: "";
+}
+@media screen and ( max-width: 600px ) {
+	button {
+		width: 100%;
+		max-width: 300px;
+		margin: auto auto 2rem;
+	}
+}
