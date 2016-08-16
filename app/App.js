@@ -110,23 +110,23 @@ var SaveLetter = React.createClass({
     var that = event.target;
 
     that.classList = 'submitted';
-    setTimeout(function() {
-      var str = '',
-          coverLetterContent = document.getElementById('cover-letter'),
-          coverLetterTextareaContent = document.getElementById('cover-letter-text'),
-          link = document.getElementById('downloadlink');
+    // setTimeout(function() {
+    //   var str = '',
+    //       coverLetterContent = document.getElementById('cover-letter'),
+    //       coverLetterTextareaContent = document.getElementById('cover-letter-text'),
+    //       link = document.getElementById('downloadlink');
 
-      str = coverLetterContent.innerHTML.replace(/<br[^>]*>/gi, "\n");
-      str = str.replace(/<(?:.|\s)*?>/g, "");
+    //   str = coverLetterContent.innerHTML.replace(/<br[^>]*>/gi, "\n");
+    //   str = str.replace(/<(?:.|\s)*?>/g, "");
 
-      coverLetterTextareaContent.value = str;
+    //   coverLetterTextareaContent.value = str;
 
-      link.href = makeTextFile(coverLetterTextareaContent.value);
-      link.click(); // fake the click, and download the file
-    }, 500);
+    //   link.href = makeTextFile(coverLetterTextareaContent.value);
+    //   link.click(); // fake the click, and download the file
+    // }, 500);
     setTimeout(function() {
       that.classList = '';
-    }, 1500);
+    }, 10000);
   },
   render() {
     return (

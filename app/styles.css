@@ -170,8 +170,8 @@ button:active {
 	z-index: 2;
 	height: 100%;
 	width: 100%;
-	background: #efefef url(http://hire.jefff.co/img/lodr.gif) no-repeat center;
-	background-size: 30px;
+	background: #efefef url(/public/images/dancing-farley.gif) no-repeat center bottom;
+	background-size: 40px;
 	content: "";
 }
 @media screen and ( max-width: 600px ) {
