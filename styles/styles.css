@@ -53,7 +53,7 @@ a:active {
 header {
 	position: relative;
 	background: #111;
-	padding: 1rem;
+	padding: 1rem 1rem .75rem;
 	color: white;
 }
 header a {
@@ -78,7 +78,7 @@ h1 span:last-of-type {
 h1:before {
 	display: inline-block;
 	position: absolute;
-	top: 1px;
+	/*top: 1px;*/
 	left: 0;
 	z-index: 2;
 	height: 1em;
@@ -92,7 +92,7 @@ h1:before {
 h1:after {
 	display: inline-block;
 	position: absolute;
-	top: 1px;
+	/*top: 1px;*/
 	left: .5em;
 	z-index: 2;
 	height: 1em;
@@ -280,7 +280,7 @@ button:disabled {
 	z-index: 2;
 	height: 100%;
 	width: 100%;
-	background: #efefef url(https://raw.githubusercontent.com/jefffis/coverlttr/master/public/images/dancing-farley.gif) no-repeat center bottom;
+	background: #efefef url(../images/dancing-farley.gif) no-repeat center bottom;
 	background-size: 40px;
 	border-radius: 3px;
 	content: "";
