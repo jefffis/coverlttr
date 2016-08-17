@@ -11,6 +11,9 @@ html {
 body {
 	/*max-width: 380px;
 	margin: auto;*/
+	overflow-x: hidden;
+	/* preload background Farley image */
+	background: url(https://raw.githubusercontent.com/jefffis/coverlttr/master/public/images/dancing-farley.gif) no-repeat -9999px -9999px;
 	padding: 0 0 3rem;
 }
 a:active {
@@ -228,11 +231,6 @@ button:nth-of-type(2) {
 	cursor: default;
 	background: #efefef;
 	outline: none;
-}
-
-/* preload background Farley image */
-#root {
-	background: url(https://raw.githubusercontent.com/jefffis/coverlttr/master/public/images/dancing-farley.gif) no-repeat -9999px -9999px;
 }
 
 .submitted:after {
