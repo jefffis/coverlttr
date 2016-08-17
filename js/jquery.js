@@ -91,16 +91,21 @@ $(function(){
 		coverLetter.html($(this).data('cover-letter'));
 		draftList.removeClass('shown');
 		saveLocalDraftBtn.prop('disabled', false);
+		randomString = $(this).data('draft-id');
+		console.log(randomString);
 	});
 });
 
 function saveLocalDraft(company, title, location, coverLetter, showLocalDraftsLink, draftList, el) {
 	var that = el;
 
+	console.log(randomString);
+
 	if ( !localStorage.getItem('has-local-drafts') ) {
 		localStorage.setItem('has-local-drafts', true);
 	}
 	localDraft = {
+		'draftId': randomString,
 		'company': company,
 		'title': title,
 		'location': location,
@@ -127,7 +132,8 @@ function showLocalDrafts(el, draftList) {
 		if ( localStorage[i] !== 'true') {
 			var draft = JSON.parse(localStorage[i]),
 				companyName = draft.company !== '' ? ' (' + draft.company + ')' : '';
-			$('div', draftList).append("<a data-company='" + draft.company + "' data-title='" + draft.title + "' data-location='" + draft.location + "' data-cover-letter='" + draft.coverLetter.replace("'", "&#39;") + "'>Draft #" + draftNumber + companyName + "</a>");
+			$('div', draftList).append("<a data-draft-id='" + draft.draftId + "' data-company='" + draft.company + "' data-title='" + draft.title + "' data-location='" + draft.location + "' data-cover-letter='" + draft.coverLetter.replace("'", "&#39;") + "'>Draft #" + draftNumber + companyName + "</a>");
+			//<span data-key='" + draftNumber + "'>Remove</span>
 			draftNumber++;
 		}
 	}

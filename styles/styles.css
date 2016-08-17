@@ -232,7 +232,7 @@ button {
 	/*float: right;*/
 	background: #111;
 	margin: auto;
-	padding: 15px 20px;
+	padding: 15px 20px 13px;
 	border-radius: 3px;
 	color: white;
 	cursor: pointer;
@@ -332,6 +332,7 @@ footer small {
 	width: 100%;
 	background: white;
 	padding: 1.5rem;
+	text-align: center;
 }
 #draft-list.shown {
 	animation: slideDown .25s ease-in-out;
@@ -339,13 +340,25 @@ footer small {
 	opacity: 1;
 }
 #draft-list h2 {
-	max-width: 380px;
+	/*display: inline-block;*/
+	/*max-width: 380px;*/
 	margin: auto auto 1rem;
+	padding-bottom: 1rem;
+	border-bottom: 5px solid #ddd;
 	color: #111;
 	font-size: 20px;
 	font-weight: normal;
+	line-height: 1.2;
 	text-align: center;
 }
+/*#draft-list h2:after {
+	display: block;
+	height: 1px;
+	width: 100px;
+	background: #ddd;
+	margin: 5px auto auto;
+	content: "";
+}*/
 #draft-list a {
 	display: block;
 	max-width: 380px;
@@ -355,9 +368,6 @@ footer small {
 	font-size: 20px;
 	font-weight: normal;*/
 	text-align: center;
-}
-#draft-list a:nth-of-type(n+2) {
-	border-top: 1px solid #ddd;
 }
 #draft-list button {
 	position: absolute;
@@ -371,6 +381,12 @@ footer small {
 	#draft-list h2 {
 		max-width: 100%;
 		text-align: left;
+	}
+	#draft-list a {
+		padding: 1rem 0;
+	}
+	#draft-list a:nth-of-type(n+2) {
+		border-top: 1px solid #ddd;
 	}
 }
 
