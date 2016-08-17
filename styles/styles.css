@@ -1,3 +1,18 @@
+@font-face {
+  font-family: 'Fira Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Fira Mono'), local('FiraMono'), url(https://fonts.gstatic.com/s/firamono/v4/SlRWfq1zeqXiYWAN-lnG-pBw1xU1rKptJj_0jans920.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: 'Fira Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Fira Mono Bold'), local('FiraMono-Bold'), url(https://fonts.gstatic.com/s/firamono/v4/l24Wph3FsyKAbJ8dfExTZxampu5_7CjHW5spxoeN3Vs.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -16,6 +31,11 @@ body {
 	background: url(https://raw.githubusercontent.com/jefffis/coverlttr/master/public/images/dancing-farley.gif) no-repeat -9999px -9999px;
 	padding: 0 0 3rem;
 }
+
+html.fonts-loaded, .fonts-loaded body {
+	font-family : 'Fira Mono';
+}
+
 a {
 	color: blue;
 	cursor: pointer;
@@ -38,10 +58,9 @@ header {
 }
 header a {
 	position: absolute;
-	top: .95rem;
+	top: 1rem;
 	right: 1.5rem;
 	color: #FCCE14;
-	/*line-height: 0;*/
 	text-decoration: underline;
 }
 
@@ -87,19 +106,8 @@ h1:after {
 	h1 {
 		max-width: 10rem;
 	    margin: auto;
-	    /*padding-left: 1.75rem;*/
 	}
 }
-
-/*@media screen and ( min-width: 800px ) {
-	body {
-		max-width: 100%;
-		margin: 0;
-	}
-	header, form {
-		float: left;
-	}
-}*/
 
 [role=main] {
 	max-width: 380px;
@@ -125,11 +133,6 @@ label:nth-child(n+2) {
 label span {
 	display: inline-block;
 	min-width: 100px;
-	/*padding-top: 4px;*/
-	/*color: #999;*/
-	/*font-size: 14px;*/
-	/*font-weight: bold;*/
-	/*letter-spacing: .25px;*/
 	vertical-align: middle;
 }
 label span:after {
@@ -146,6 +149,8 @@ input {
 	font-size: 16px;
 	outline: none;
 	vertical-align: middle;
+
+	-webkit-appearance: none;
 }
 input:focus {
 	border-color: currentColor;
@@ -158,8 +163,9 @@ p {
 }
 .more {
 	position: relative;
-	border-bottom: 1px dotted #999;
 	color: #111;
+}
+.more sup {
 	text-decoration: none;
 }
 @media screen and ( max-width: 600px ) {
@@ -181,6 +187,7 @@ p {
 	color: #111;
 	font-family: Georgia, serif;
 	font-size: 19px;
+	line-height: 1.6;
 	outline: none;
 }
 [contenteditable]:focus {
@@ -241,6 +248,23 @@ button:nth-of-type(2) {
 	margin-left: 1rem;
 	/*color: #111;*/
 }
+button:disabled {
+	opacity: .65;
+	background: #ddd;
+	color: #999;
+	cursor: default;
+}
+/*button:disabled:after {
+	display: block;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	margin-top: 10px;
+	content: attr(data-validation);
+	font-size: 11px;
+	text-align: center;
+}*/
 .submitted {
 	cursor: default;
 	background: #efefef;
@@ -300,7 +324,7 @@ footer small {
 /*** draft list ***/
 #draft-list {
 	position: fixed;
-	top: -100%;
+	top: -200%;
 	left: 0;
 	z-index: 3;
 	opacity: 0;
@@ -325,11 +349,15 @@ footer small {
 #draft-list a {
 	display: block;
 	max-width: 380px;
-	margin: auto auto 1rem;
+	margin: auto;
+	padding: 1rem;
 	/*color: #111;
 	font-size: 20px;
 	font-weight: normal;*/
 	text-align: center;
+}
+#draft-list a:nth-of-type(n+2) {
+	border-top: 1px solid #ddd;
 }
 #draft-list button {
 	position: absolute;
@@ -365,7 +393,7 @@ footer small {
 
 @keyframes slideDown {
 	0% {
-		top: -100%;
+		top: -200%;
 		opacity: 0;
 	}
 	100% {
