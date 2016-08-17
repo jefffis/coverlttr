@@ -103,31 +103,34 @@ $(function(){
 		randomString = $(this).data('draft-id');
 	});
 
-	$('body').on('click', '#draft-list em', function() {
-		var localStorageValue = $(this).data('value'),
-			draftLink = $(this).parent();
+	// $('body').on('click', '#draft-list em', function() {
+	// 	var localStorageValue = $(this).data('value'),
+	// 		draftLink = $(this).parent();
 
-		for(var i in localStorage) {
-			if(localStorageValue === i) {
-				localStorage.removeItem(i);
-				draftLink.remove();
-			}
-			if(localStorage.length < 3) {
-				localStorage.removeItem('has-local-drafts');
-				setTimeout(function() {
-					draftList.removeClass('shown');
-					successBanner('All drafts have been removed.');
-				}, 500);
-			}
-		}
+	// 	for(var i in localStorage) {
+	// 		if(localStorageValue === i) {
+	// 			localStorage.removeItem(i);
+	// 			draftLink.remove();
+	// 		}
+	// 	}
 
-	});
+	// 	for(var i in localStorage) {
+	// 		if(localStorage.length < 3) {
+	// 			localStorage.removeItem('has-local-drafts');
+	// 			setTimeout(function() {
+	// 				draftList.removeClass('shown');
+	// 				successBanner('All drafts have been removed.');
+	// 			}, 500);
+	// 		}
+	// 	}
+
+	// });
 });
 
 function saveLocalDraft(company, title, location, coverLetter, showLocalDraftsLink, draftList, el) {
 	var that = el;
 
-	console.log(randomString);
+	// console.log(randomString);
 
 	if ( !localStorage.getItem('has-local-drafts') ) {
 		localStorage.setItem('has-local-drafts', true);
@@ -144,23 +147,34 @@ function saveLocalDraft(company, title, location, coverLetter, showLocalDraftsLi
 	setTimeout(function() {
 		that.addClass('submitted');
 	}, 125);
+	
 	setTimeout(function() {
 		that.removeClass('submitted').blur();
 		successBanner('Shwing! The draft was saved.');
 	}, 1500);
 	el.prop('disabled', true);
+
+	// window.location.href = window.location.pathname = '#draft-saved';
+	// window.location.reload(true);
 }
+
+// if(location.hash === '#draft-saved') {
+// 	successBanner('Shwing! The draft was saved.');
+// 	history.replaceState({}, document.title, window.location.pathname);
+// }
 
 function showLocalDrafts(el, draftList) {
 	el.show();
 
-	$('a', draftList).remove();
+	$('span', draftList).remove();
 	var draftNumber = 1;
 	for(var i in localStorage) {
 		if ( localStorage[i] !== 'true') {
+			// console.log(i);
 			var draft = JSON.parse(localStorage[i]),
 				companyName = draft.company !== '' ? draft.company : 'Untitled Draft';
-			$('div', draftList).append("<span><a data-draft-id='" + draft.draftId + "' data-company='" + draft.company + "' data-title='" + draft.title + "' data-location='" + draft.location + "' data-cover-letter='" + draft.coverLetter.replace("'", "&#39;") + "'>" + companyName + "</a><em data-value='" + i + "'>Remove</em></span>");
+			$('div', draftList).append("<span><a data-draft-id='" + draft.draftId + "' data-company='" + draft.company + "' data-title='" + draft.title + "' data-location='" + draft.location + "' data-cover-letter='" + draft.coverLetter.replace("'", "&#39;") + "'>" + companyName + "</a></span>");
+			//<em data-value='" + i + "'>Remove</em>
 			draftNumber++;
 		}
 	}
