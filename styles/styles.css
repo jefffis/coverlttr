@@ -142,7 +142,7 @@ input {
 	display: inline-block;
 	width: calc(100% - 120px);
 	padding: 10px;
-	border: 1px solid #ddd;
+	border: 1px solid #ccc;
 	border-radius: 2px;
 	box-shadow: 0 2px 0 #efefef inset;
 	font-family: inherit;
@@ -181,7 +181,7 @@ p {
 	margin-right: -4rem;
 	margin-bottom: 3rem;
 	padding: 2rem;
-	border: 1px solid #ddd;
+	border: 1px solid #ccc;
 	/*border-radius: 3px;*/
 	box-shadow: 3px 3px 0 #efefef;
 	color: #111;
@@ -226,6 +226,18 @@ b:empty:after, .customize:empty:after {
 .ender {
 	text-align: center;
 }
+.ender span {
+	display: inline-block;
+	padding: 0 5px;
+	color: #999;
+	font-style: italic;
+}
+@media screen and ( max-width: 600px ) {
+	.ender span {
+		display: block;
+		margin: .9rem 0 -.75rem;
+	}
+}
 button {
 	display: inline-block;
 	position: relative;
@@ -244,15 +256,20 @@ button:active {
 	color: rgba(255, 255, 255, 0.75);
 }
 button:nth-of-type(2) {
-	background: #999;
-	margin-left: 1rem;
-	/*color: #111;*/
+	background: white;
+	/*margin-left: 1rem;*/
+	box-shadow: 0 0 0 1px #111 inset;
+	color: #111;
+}
+button:nth-of-type(2):active {
+	color: #999;
 }
 button:disabled {
-	opacity: .65;
+	/*opacity: .65;*/
 	background: #ddd;
+	box-shadow: none;
 	color: #999;
-	cursor: default;
+	cursor: not-allowed;
 }
 /*button:disabled:after {
 	display: block;
@@ -266,9 +283,12 @@ button:disabled {
 	text-align: center;
 }*/
 .submitted {
-	cursor: default;
 	background: #efefef;
 	outline: none;
+	cursor: default;
+}
+button:nth-of-type(2).submitted {
+	background: white;
 }
 
 .submitted:after {
@@ -302,7 +322,7 @@ footer {
 	margin: auto;
 	padding-top: 3rem;
 	font-size: 14px;
-	color: #999;
+	color: #666;
 	text-align: center;
 }
 
@@ -332,7 +352,7 @@ footer small {
 	width: 100%;
 	background: white;
 	padding: 1.5rem;
-	text-align: center;
+	/*text-align: center;*/
 }
 #draft-list.shown {
 	animation: slideDown .25s ease-in-out;
@@ -341,33 +361,45 @@ footer small {
 }
 #draft-list h2 {
 	/*display: inline-block;*/
-	/*max-width: 380px;*/
+	max-width: 380px;
 	margin: auto auto 1rem;
-	padding-bottom: 1rem;
-	border-bottom: 5px solid #ddd;
+	/*padding-bottom: 1rem;
+	border-bottom: 5px solid #ccc;*/
 	color: #111;
 	font-size: 20px;
-	font-weight: normal;
+	font-weight: bold;
 	line-height: 1.2;
-	text-align: center;
+	/*text-align: center;*/
 }
 /*#draft-list h2:after {
 	display: block;
 	height: 1px;
 	width: 100px;
-	background: #ddd;
+	background: #ccc;
 	margin: 5px auto auto;
 	content: "";
 }*/
-#draft-list a {
+#draft-list span {
 	display: block;
 	max-width: 380px;
 	margin: auto;
-	padding: 1rem;
+	padding: 1rem 0 .85rem;
 	/*color: #111;
 	font-size: 20px;
 	font-weight: normal;*/
-	text-align: center;
+	/*text-align: center;*/
+}
+#draft-list em {
+	cursor: pointer;
+	float: right;
+	font-style: normal;
+	text-decoration: underline;
+}
+#draft-list span:nth-of-type(n+2) {
+	border-top: 1px solid #ccc;
+}
+#draft-list a:hover, #draft-list em:hover {
+	text-decoration: none;
 }
 #draft-list button {
 	position: absolute;
@@ -377,17 +409,11 @@ footer small {
 }
 
 @media screen and ( max-width: 600px ) {
-	#draft-list a,
+	#draft-list span,
 	#draft-list h2 {
 		max-width: 100%;
-		text-align: left;
 	}
-	#draft-list a {
-		padding: 1rem 0;
-	}
-	#draft-list a:nth-of-type(n+2) {
-		border-top: 1px solid #ddd;
-	}
+	
 }
 
 #success {

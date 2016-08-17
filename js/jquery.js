@@ -84,15 +84,43 @@ $(function(){
 	$('button', draftList).on('click', function() {
 		draftList.removeClass('shown');
 	});
+
+	// detect change of contenteditable div
+	var coverLetterHtml = coverLetter.html();
+	coverLetter.on('keyup', function() {
+		if(coverLetterHtml != $(this).html()) {
+			saveLocalDraftBtn.prop('disabled', false);
+		}
+	});
+
 	$('body').on('click', '#draft-list a', function() {
 		company.val($(this).data('company'));
 		title.val($(this).data('title'));
 		location.val($(this).data('location'));
 		coverLetter.html($(this).data('cover-letter'));
 		draftList.removeClass('shown');
-		saveLocalDraftBtn.prop('disabled', false);
+		saveLocalDraftBtn.prop('disabled', true);
 		randomString = $(this).data('draft-id');
-		console.log(randomString);
+	});
+
+	$('body').on('click', '#draft-list em', function() {
+		var localStorageValue = $(this).data('value'),
+			draftLink = $(this).parent();
+
+		for(var i in localStorage) {
+			if(localStorageValue === i) {
+				localStorage.removeItem(i);
+				draftLink.remove();
+			}
+			if(localStorage.length < 3) {
+				localStorage.removeItem('has-local-drafts');
+				setTimeout(function() {
+					draftList.removeClass('shown');
+					successBanner('All drafts have been removed.');
+				}, 500);
+			}
+		}
+
 	});
 });
 
@@ -131,9 +159,8 @@ function showLocalDrafts(el, draftList) {
 	for(var i in localStorage) {
 		if ( localStorage[i] !== 'true') {
 			var draft = JSON.parse(localStorage[i]),
-				companyName = draft.company !== '' ? ' (' + draft.company + ')' : '';
-			$('div', draftList).append("<a data-draft-id='" + draft.draftId + "' data-company='" + draft.company + "' data-title='" + draft.title + "' data-location='" + draft.location + "' data-cover-letter='" + draft.coverLetter.replace("'", "&#39;") + "'>Draft #" + draftNumber + companyName + "</a>");
-			//<span data-key='" + draftNumber + "'>Remove</span>
+				companyName = draft.company !== '' ? draft.company : 'Untitled Draft';
+			$('div', draftList).append("<span><a data-draft-id='" + draft.draftId + "' data-company='" + draft.company + "' data-title='" + draft.title + "' data-location='" + draft.location + "' data-cover-letter='" + draft.coverLetter.replace("'", "&#39;") + "'>" + companyName + "</a><em data-value='" + i + "'>Remove</em></span>");
 			draftNumber++;
 		}
 	}
