@@ -16,6 +16,11 @@ body {
 	background: url(https://raw.githubusercontent.com/jefffis/coverlttr/master/public/images/dancing-farley.gif) no-repeat -9999px -9999px;
 	padding: 0 0 3rem;
 }
+a {
+	color: blue;
+	cursor: pointer;
+	text-decoration: underline;
+}
 a:active {
 	opacity: .65;
 }
@@ -26,10 +31,18 @@ a:active {
 }
 
 header {
+	position: relative;
 	background: #111;
 	padding: 1rem;
 	color: white;
-	
+}
+header a {
+	position: absolute;
+	top: .95rem;
+	right: 1.5rem;
+	color: #FCCE14;
+	/*line-height: 0;*/
+	text-decoration: underline;
 }
 
 h1 {
@@ -176,8 +189,8 @@ p {
 }
 @media screen and ( max-width: 600px ) {
 	[contenteditable] {
-		margin-left: -1.75rem;
-		margin-right: -1.75rem;
+		margin-left: -1.5rem;
+		margin-right: -1.5rem;
 		padding: 2.5rem 1.75rem;
 	}
 }
@@ -185,6 +198,7 @@ p {
 	[contenteditable] {
 		border-left: 0;
 		border-right: 0;
+		box-shadow: 0 3px 0 #efefef;
 	}
 }
 
@@ -282,3 +296,83 @@ footer strong {
 footer small {
 	font-size: 13px;
 }
+
+/*** draft list ***/
+#draft-list {
+	position: fixed;
+	top: -100%;
+	left: 0;
+	z-index: 3;
+	opacity: 0;
+	height: 100%;
+	width: 100%;
+	background: white;
+	padding: 1.5rem;
+}
+#draft-list.shown {
+	animation: slideDown .25s ease-in-out;
+	top: 0;
+	opacity: 1;
+}
+#draft-list h2 {
+	max-width: 380px;
+	margin: auto auto 1rem;
+	color: #111;
+	font-size: 20px;
+	font-weight: normal;
+	text-align: center;
+}
+#draft-list a {
+	display: block;
+	max-width: 380px;
+	margin: auto auto 1rem;
+	/*color: #111;
+	font-size: 20px;
+	font-weight: normal;*/
+	text-align: center;
+}
+#draft-list button {
+	position: absolute;
+	bottom: 1.5rem;
+	right: 1.5rem;
+	width: auto;
+}
+
+@media screen and ( max-width: 600px ) {
+	#draft-list a,
+	#draft-list h2 {
+		max-width: 100%;
+		text-align: left;
+	}
+}
+
+#success {
+	position: fixed;
+	top: 2rem;
+	left: 0;
+	z-index: 2;
+	width: 100%;
+	text-align: center;
+}
+#success p {
+	display: inline-block;
+	background: #f9edbe;
+	padding: 10px 15px;
+	border-radius: 3px;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.125) inset,
+	2px 2px 0 rgba(0, 0, 0, 0.125);
+}
+
+@keyframes slideDown {
+	0% {
+		top: -100%;
+		opacity: 0;
+	}
+	100% {
+		top: 0;
+		opacity: 1;
+	}
+}
+
+
+
