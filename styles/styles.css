@@ -20,7 +20,7 @@
 	box-sizing: border-box;
 }
 html {
-	font: normal 100%/1.5 "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	font: normal 100%/1.5 "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "Helvetica Neue", Arial sans-serif;
 	color: #666;
 }
 body {
@@ -336,6 +336,7 @@ footer {
 
 footer strong {
 	color: #111;
+	font-size: 15px;
 }
 footer small {
 	font-size: 13px;
@@ -352,7 +353,6 @@ footer small {
 	width: 100%;
 	background: white;
 	padding: 1.5rem;
-	/*text-align: center;*/
 }
 #draft-list.shown {
 	animation: slideDown .25s ease-in-out;

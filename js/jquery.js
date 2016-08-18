@@ -39,7 +39,7 @@ $(function(){
 	}
 
 	if(isMobile.any()) {
-	 downloadFile.text('Copy Text');
+	 downloadFile.text('Email This');
 	}
 
 	company.on('keyup', function() {
@@ -221,16 +221,18 @@ function downloadTextFile(el) {
 
 		if(isMobile.any()) {
 			// TODO add mobile check
-			coverLetterTextareaContent.select();
-			document.execCommand('copy');
+			// coverLetterTextareaContent.select();
+			// document.execCommand('copy');
+			window.location.href = "mailto:?subject=The cover letter I wrote with CoverBetter&body=" + str;
 		} else {
 			link.href = makeTextFile(coverLetterTextareaContent.value);
 			link.click(); // fake the click, and download the file
 		}
 	}, 500);
 	setTimeout(function() {
-		var msg = isMobile.any() ? 'Shwing! Text copied.' : 'Shwing! File downloaded.';
 		that.removeClass('submitted').blur();
-		successBanner(msg);
+		if(!isMobile.any()) {
+			successBanner('Shwing! Text copied.');
+		}
 	}, 1500);
 }
