@@ -44,7 +44,7 @@ $(function(){
 
 	company.on('keyup', function() {
 		var thisRel = $(this).data('rel');
-		$('#' + thisRel).text($(this).val());
+		$('.' + thisRel).text($(this).val());
 
 		if($(this).val() !== '') {
 			saveLocalDraftBtn.prop('disabled', false);
@@ -53,7 +53,7 @@ $(function(){
 	});
 	title.on('keyup', function() {
 		var thisRel = $(this).data('rel');
-		$('#' + thisRel).text($(this).val());
+		$('.' + thisRel).text($(this).val());
 
 		if($(this).val() !== '') {
 			saveLocalDraftBtn.prop('disabled', false);
@@ -62,7 +62,7 @@ $(function(){
 	});
 	location.on('keyup', function() {
 		var thisRel = $(this).data('rel');
-		$('#' + thisRel).text($(this).val());
+		$('.' + thisRel).text($(this).val());
 
 		if($(this).val() !== '') {
 			saveLocalDraftBtn.prop('disabled', false);
@@ -127,10 +127,14 @@ $(function(){
 	// });
 });
 
+function replaceAll(str, find, replace) {
+	return str.replace(new RegExp(find, 'g'), replace);
+}
+
 function saveLocalDraft(company, title, location, coverLetter, showLocalDraftsLink, draftList, el) {
 	var that = el;
 
-	// console.log(randomString);
+	console.log(replaceAll(coverLetter, "'", "&#39;"));
 
 	if ( !localStorage.getItem('has-local-drafts') ) {
 		localStorage.setItem('has-local-drafts', true);
@@ -140,7 +144,7 @@ function saveLocalDraft(company, title, location, coverLetter, showLocalDraftsLi
 		'company': company,
 		'title': title,
 		'location': location,
-		'coverLetter': coverLetter
+		'coverLetter': replaceAll(coverLetter, "'", "&#39;")
 	}
 	localStorage.setItem('local-drafts-' + randomString, JSON.stringify(localDraft));
 	showLocalDrafts(showLocalDraftsLink, draftList);

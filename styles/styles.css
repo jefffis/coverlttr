@@ -344,8 +344,9 @@ footer small {
 
 /*** draft list ***/
 #draft-list {
+	display: none;
 	position: fixed;
-	top: -200%;
+	top: -100%;
 	left: 0;
 	z-index: 3;
 	opacity: 0;
@@ -356,6 +357,7 @@ footer small {
 }
 #draft-list.shown {
 	animation: slideDown .25s ease-in-out;
+	display: block;
 	top: 0;
 	opacity: 1;
 }
@@ -442,10 +444,12 @@ footer small {
 
 @keyframes slideDown {
 	0% {
-		top: -200%;
+		display: none;
+		top: -100%;
 		opacity: 0;
 	}
 	100% {
+		display: block;
 		top: 0;
 		opacity: 1;
 	}
