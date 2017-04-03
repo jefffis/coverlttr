@@ -128,6 +128,7 @@ $(function(){
 });
 
 function replaceAllText(str, find, replace) {
+	console.log(str, find, replace);
 	return str.replace(new RegExp(find, 'g'), replace);
 }
 
