@@ -135,6 +135,7 @@ function saveLocalDraft(company, title, location, coverLetter, showLocalDraftsLi
 	var that = el;
 
 	// console.log(replaceAll(coverLetter, "'", "&#39;"));
+	console.log();
 
 	if ( !localStorage.getItem('has-local-drafts') ) {
 		localStorage.setItem('has-local-drafts', true);
@@ -177,7 +178,7 @@ function showLocalDrafts(el, draftList) {
 			// console.log(i);
 			var draft = JSON.parse(localStorage[i]),
 				companyName = draft.company !== '' ? draft.company : 'Untitled Draft';
-			$('div', draftList).append("<span><a data-draft-id='" + draft.draftId + "' data-company='" + draft.company + "' data-title='" + draft.title + "' data-location='" + draft.location + "' data-cover-letter='" + draft.coverLetter.replace("'", "&#39;") + "'>" + companyName + "</a></span>");
+			$('div', draftList).append("<span><a data-draft-id='" + draft.draftId + "' data-company='" + draft.company + "' data-title='" + draft.title + "' data-location='" + draft.location + "' data-cover-letter='" + replaceAll(draft.coverLetter, "'", "&#39;") + "'>" + companyName + "</a></span>");
 			//<em data-value='" + i + "'>Remove</em>
 			draftNumber++;
 		}
