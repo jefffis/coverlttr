@@ -4,13 +4,13 @@ module.exports= function(grunt){
 
 		pkg: grunt.file.readJSON('package.json'),
 
-		sass: {
-			dist: {
-                files: {
-                    'stylesheets/<%= pkg.file_name %>.css': 'stylesheets/sass/*.scss'
-                }
-            }
-		},
+		// sass: {
+		// 	dist: {
+  //               files: {
+  //                   'stylesheets/<%= pkg.file_name %>.css': 'stylesheets/sass/*.scss'
+  //               }
+  //           }
+		// },
 
 		'min': {
 			'dist': {
@@ -18,7 +18,7 @@ module.exports= function(grunt){
 					'report': false
 				},
 				'files': [{
-					'src': ['js/echo.js','js/font.js','js/jquery.js'],
+					'src': ['js/font.js','js/jquery.js'],
 					'dest': 'js/app.js'
 				}]
 			}
