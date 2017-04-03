@@ -134,7 +134,7 @@ function replaceAll(str, find, replace) {
 function saveLocalDraft(company, title, location, coverLetter, showLocalDraftsLink, draftList, el) {
 	var that = el;
 
-	console.log(replaceAll(coverLetter, "'", "&#39;"));
+	// console.log(replaceAll(coverLetter, "'", "&#39;"));
 
 	if ( !localStorage.getItem('has-local-drafts') ) {
 		localStorage.setItem('has-local-drafts', true);
