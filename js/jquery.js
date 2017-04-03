@@ -39,7 +39,7 @@ $(function(){
 	}
 
 	if(isMobile.any()) {
-	 downloadFile.text('Email This');
+		downloadFile.text('Email This');
 	}
 
 	company.on('keyup', function() {
@@ -128,13 +128,13 @@ $(function(){
 });
 
 function replaceAllText(str, find, replace) {
-	console.log(str, find, replace);
+	// console.log(str, find, replace);
 	return str.replace(new RegExp(find, 'g'), replace);
 }
 
 function saveLocalDraft(company, title, location, coverLetter, showLocalDraftsLink, draftList, el) {
 	var that = el;
-
+	// console.log(el);
 	if ( !localStorage.getItem('has-local-drafts') ) {
 		localStorage.setItem('has-local-drafts', true);
 	}
