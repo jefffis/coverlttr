@@ -127,15 +127,12 @@ $(function(){
 	// });
 });
 
-function replaceAll(str, find, replace) {
+function replaceAllText(str, find, replace) {
 	return str.replace(new RegExp(find, 'g'), replace);
 }
 
 function saveLocalDraft(company, title, location, coverLetter, showLocalDraftsLink, draftList, el) {
 	var that = el;
-
-	// console.log(replaceAll(coverLetter, "'", "&#39;"));
-	console.log();
 
 	if ( !localStorage.getItem('has-local-drafts') ) {
 		localStorage.setItem('has-local-drafts', true);
@@ -145,7 +142,7 @@ function saveLocalDraft(company, title, location, coverLetter, showLocalDraftsLi
 		'company': company,
 		'title': title,
 		'location': location,
-		'coverLetter': replaceAll(coverLetter, "'", "&#39;")
+		'coverLetter': replaceAllText(coverLetter, "'", "&#39;")
 	}
 	localStorage.setItem('local-drafts-' + randomString, JSON.stringify(localDraft));
 	showLocalDrafts(showLocalDraftsLink, draftList);
@@ -178,7 +175,7 @@ function showLocalDrafts(el, draftList) {
 			// console.log(i);
 			var draft = JSON.parse(localStorage[i]),
 				companyName = draft.company !== '' ? draft.company : 'Untitled Draft';
-			$('div', draftList).append("<span><a data-draft-id='" + draft.draftId + "' data-company='" + draft.company + "' data-title='" + draft.title + "' data-location='" + draft.location + "' data-cover-letter='" + replaceAll(draft.coverLetter, "'", "&#39;") + "'>" + companyName + "</a></span>");
+			$('div', draftList).append("<span><a data-draft-id='" + draft.draftId + "' data-company='" + draft.company + "' data-title='" + draft.title + "' data-location='" + draft.location + "' data-cover-letter='" + replaceAllText(draft.coverLetter, "'", "&#39;") + "'>" + companyName + "</a></span>");
 			//<em data-value='" + i + "'>Remove</em>
 			draftNumber++;
 		}
