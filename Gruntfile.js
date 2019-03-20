@@ -18,7 +18,7 @@ module.exports= function(grunt){
 					'report': false
 				},
 				'files': [{
-					'src': ['js/font.js','js/jquery.js'],
+					'src': ['js/font.js','js/jquery.js', 'js/appppp.js'],
 					'dest': 'js/app.js'
 				}]
 			}
