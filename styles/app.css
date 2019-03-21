@@ -1,0 +1,321 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+html {
+  /*background: rgba(90, 118, 133, .2);*/
+  background: #5A7685;
+  color: #010E22;
+  font: normal 100%/1.5 -apple-system,BlinkMacSystemFont,Roboto,Oxygen-Sans,Ubuntu,"Helvetica Neue",Arial,sans-serif;
+  font-family: -apple-system,BlinkMacSystemFont,Roboto,Oxygen-Sans,Ubuntu,"Helvetica Neue",Arial,sans-serif; /* old IE hack */
+}
+body {
+  overflow-x: hidden;
+  /* preload background Farley image */
+  background: url(../images/dancing-farley.gif) no-repeat -9999px -9999px;
+  padding: 0 0 3rem;
+}
+h1, h2, h3 {
+  line-height: 1.25;
+}
+input, button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+header {
+  /*background: #5A7685;*/
+  /*padding-: 5rem 4rem;*/
+  /*text-align: center;*/
+  padding: 3rem;
+}
+header h1 {
+  max-width: 500px;
+  margin-top: 3rem;
+  color: white;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+header strong {
+  display: block;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+}
+footer a {
+  display: inline-block;
+  padding: 1.5rem;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+footer a:nth-child(n+2) {
+  opacity: .65;
+}
+
+.details {
+  /*display: none;*/
+  /*position: absolute;
+  top: 50%;
+  left: 3rem;*/
+  max-width: 500px;
+  background: white;
+  /*margin: 4rem auto auto;*/
+  margin-top: 4rem;
+  padding: 2rem 0;
+  /*border: 1px solid #ccc;*/
+  /*border-bottom: 0;*/
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(25, 49, 62, .25);
+  /*transform: translateY(-50%);*/
+}
+.details h2 {
+  margin-bottom: 1rem;
+  padding: 0 2rem;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: left;
+}
+.details span {
+  position: absolute;
+  left: -9999px;
+}
+.details input {
+  display: block;
+  width: 100%;
+  background: transparent;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+}
+/*.details input:first-child {
+  border-radius: 12px 12px 0 0;
+}*/
+.details input:focus {
+  background: rgba(0, 36, 28, 0.05);
+  border-color: #00241C;
+}
+.continue {
+  display: inline-block;
+  padding: 2rem 2rem .5rem;
+  color: #0693FF;
+  text-decoration: none;
+}
+
+.cover-letter {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 50vw;
+  height: 100vh;
+  /*max-width: 1000px;*/
+  /*background: white;*/
+  background: white;
+  /*margin: 5rem auto;*/
+  padding: 8rem;
+  /*border-left: 3px solid white;*/
+  /*border-top: 0;*/
+  /*border-radius: 0 0 10px 10px;*/
+  /*box-shadow: 0 2px 4px rgba(25, 49, 62, .1);*/
+  color: rgba(90, 118, 133, .75);
+  font-family: Georgia, sans-serif;
+  font-size: 20px;
+  outline: none;
+}
+.cover-letter:focus {
+  /*z-index: 2;*/
+  box-shadow: 0 2px 0 4px rgba(25, 49, 62, .5), 0 2px 20px 4px rgba(25, 49, 62, .25);
+  color: #010E22;
+}
+b {
+  background: #FFE800;
+  padding: 2px 4px;
+  font-weight: 400;
+}
+b:empty:after, .customize:empty:after {
+  content: attr(data-blank);
+  font-style: italic;
+}
+
+.ctas {
+  /*display: none;*/
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  width: 50vw;
+  background: white;
+  padding: 3rem;
+  /*border-top: 1px solid #ccc;*/
+  text-align: center;
+}
+.btn {
+  display: inline-block;
+  position: relative;
+  background: #FF8000;
+  margin: 0 1rem;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+}
+.btn:hover {
+  box-shadow: 0 4px 20px rgba(25, 49, 62, .25);
+}
+.btn:focus {
+  box-shadow: 0 0 0 4px rgba(25, 49, 62, .075);
+}
+.btn:active {
+  background-color: #D56B00;
+  box-shadow: 0 1px 3px rgba(25, 49, 62, .25) inset;
+  color: rgba(255, 255, 255, .65);
+}
+.btn:disabled {
+  opacity: .65;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.secondary {
+  background: #ACACAC;
+}
+.secondary:active {
+  background: #878786;
+}
+.submitted:after {
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  background: #878786 url(../images/dancing-farley.gif) no-repeat center bottom;
+  background-size: 40px;
+  border-radius: 6px;
+  content: "";
+}
+#success {
+  position: fixed;
+  top: 2rem;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+}
+#success p {
+  display: inline-block;
+  background: #f9edbe;
+  padding: 10px 15px;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.125) inset,
+  2px 2px 0 rgba(0, 0, 0, 0.125);
+}
+
+/*** draft list ***/
+#draft-list {
+  display: none;
+  position: fixed;
+  top: -100%;
+  right: 0;
+  z-index: 3;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(25, 49, 62, .95);
+}
+#draft-list.shown {
+  animation: slideDown .25s ease-in-out;
+  display: block;
+  top: 0;
+  opacity: 1;
+}
+.draft-content {
+  width: 600px;
+  height: 100%;
+  background: white;
+  /*float: right;*/
+  padding: 3rem 0;
+  /*opacity: 0;
+  transition: opacity 1 ease-in-out;*/
+}
+/*.shown .draft-content {
+  opacity: 1;
+}*/
+.draft-content h2 {
+  margin-bottom: 2rem;
+  padding-left: 3rem;
+}
+.draft-content span {
+  display: block;
+  margin: auto;
+  padding: 1rem 3rem;
+  cursor: pointer;
+}
+.draft-content span:hover {
+  background: rgba(0, 36, 28, 0.05);
+}
+.draft-content span:empty {
+  display: none;
+}
+.draft-content em {
+  cursor: pointer;
+  float: right;
+  font-style: normal;
+  text-decoration: underline;
+}
+.draft-content span:nth-of-type(n+2) {
+  border-top: 1px solid #ccc;
+}
+.draft-content a:hover, .draft-content em:hover {
+  text-decoration: none;
+}
+.draft-content button {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 3rem;
+  width: auto;
+}
+
+@media screen and ( max-width: 600px ) {
+  #draft-list span,
+  #draft-list h2 {
+    max-width: 100%;
+  }
+  
+}
+
+@keyframes slideDown {
+  0% {
+    display: none;
+    top: -100%;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    top: 0;
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
